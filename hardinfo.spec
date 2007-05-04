@@ -22,6 +22,7 @@ simple benchmarks.
 %prep
 %setup -q
 %configure
+perl -pi -e "s|/usr/lib/hardinfo/|%{_libdir}/hardinfo/|g" Makefile
 
 %build
 %make
