@@ -12,6 +12,7 @@ Group: System/Kernel and hardware
 Url: http://download.berlios.de/hardinfo/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: pciutils, libsoup-devel, gtk2-devel, zlib-devel
+BuildRequires: desktop-file-utils
 
 %description
 HardInfo is a system profiler for Linux systems.
