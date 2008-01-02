@@ -15,6 +15,7 @@ Patch5: libzfix.patch
 License: GPL
 Group: System/Kernel and hardware 
 Url: http://hardinfo.berlios.de
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: pciutils, libsoup-devel, gtk2-devel, zlib-devel
 BuildRequires: desktop-file-utils
 Requires: pciutils
