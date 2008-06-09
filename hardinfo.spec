@@ -55,11 +55,15 @@ desktop-file-install --vendor="" \
 rm -rf $RPM_BUILD_ROOT
 
 %post
+%if %mdkversion < 200900
 /sbin/ldconfig
+%endif
 %update_menus
 
 %postun
+%if %mdkversion < 200900
 /sbin/ldconfig
+%endif
 %clean_menus
 
 %files
