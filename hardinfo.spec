@@ -58,13 +58,17 @@ rm -rf $RPM_BUILD_ROOT
 %if %mdkversion < 200900
 /sbin/ldconfig
 %endif
+%if %mdkversion < 200900
 %update_menus
+%endif
 
 %postun
 %if %mdkversion < 200900
 /sbin/ldconfig
 %endif
+%if %mdkversion < 200900
 %clean_menus
+%endif
 
 %files
 %defattr(-,root,root)
