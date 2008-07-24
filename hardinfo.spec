@@ -1,6 +1,6 @@
 %define name hardinfo
 %define version 0.4.2.3
-%define release %mkrel 1
+%define release %mkrel 3
 
 Summary: A system profiler for Linux
 Name: %{name}
