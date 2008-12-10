@@ -1,6 +1,6 @@
 %define name hardinfo
 %define version 0.4.2.3
-%define release %mkrel 3
+%define release %mkrel 4
 
 Summary: A system profiler for Linux
 Name: %{name}
@@ -15,7 +15,7 @@ License: GPLv2+
 Group: System/Kernel and hardware 
 Url: http://hardinfo.berlios.de
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: pciutils, libsoup-devel, gtk2-devel, zlib-devel
+BuildRequires: pciutils, libsoup-2.2-devel, gtk2-devel, zlib-devel
 BuildRequires: desktop-file-utils
 Requires: pciutils
 
