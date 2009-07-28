@@ -1,16 +1,12 @@
 %define name hardinfo
-%define version 0.4.2.3
-%define release %mkrel 4
+%define version 0.5.1
+%define release %mkrel 1
 
 Summary: A system profiler for Linux
 Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://download.berlios.de/hardinfo/%{name}-%{version}.tar.bz2
-Patch0: multilibfix.patch  
-Patch2: fixuserdsp.patch
-Patch4: fix_crash.patch
-Patch5: libzfix.patch
 License: GPLv2+
 Group: System/Kernel and hardware 
 Url: http://hardinfo.berlios.de
@@ -26,14 +22,6 @@ simple benchmarks.
 
 %prep
 %setup -q
-#fix multilib build isses (upstream working on better one)
-#%patch0 -p1 -b .multilib
-#use correct uids
-%patch2 -p1 -b .fixuserdsp
-#fix double free bug
-#%patch4 -p1 -b .crash
-#fix libz.so detection
-%patch5 -p1 -b .libzfix
 
 %build
 #export LIBDIR=%{_libdir}
