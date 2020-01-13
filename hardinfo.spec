@@ -16,7 +16,9 @@ Source0:	%{name}-%{gitdate}.tar.lz
 BuildRequires:	pciutils
 BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	pkgconfig(libsoup-2.4)
-BuildRequires:	gtk2-devel
+# Hardinfo (git) can be build now with GTK3 but still missing some test/benchmarks.
+# Let's check in near future GTK3. Switch only if functionality will be satisfactory (angry)
+BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	desktop-file-utils
 BuildRequires:	cmake
