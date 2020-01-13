@@ -39,7 +39,7 @@ simple benchmarks.
 %make_build
 
 %install
-%cmake_install
+%make_install
 
 desktop-file-install --vendor="" \
   --set-generic-name='Hardware Information' \
