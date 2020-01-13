@@ -40,7 +40,7 @@ simple benchmarks.
 %make_build
 
 %install
-%make_install
+%make_install -C build
 
 desktop-file-install --vendor="" \
   --set-generic-name='Hardware Information' \
