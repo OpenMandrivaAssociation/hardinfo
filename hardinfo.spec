@@ -36,7 +36,7 @@ simple benchmarks.
 %cmake \
      -DCMAKE_INSTALL_LIBDIR=%{_lib} \
      -DCMAKE_BUILD_TYPE=Release
-%cmake_build
+%make_build
 
 %install
 %cmake_install
