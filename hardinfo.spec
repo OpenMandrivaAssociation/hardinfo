@@ -12,7 +12,7 @@ License:	GPLv2+
 Group:		System/Kernel and hardware
 Url:		http://hardinfo.org
 #Source taken from here: https://github.com/lpereira/hardinfo/
-Source0:	%{name}-{gitdate}.tar.lz
+Source0:	%{name}-%{gitdate}.tar.lz
 BuildRequires:	pciutils
 BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	pkgconfig(libsoup-2.4)
