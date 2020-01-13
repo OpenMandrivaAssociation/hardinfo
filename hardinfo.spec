@@ -22,6 +22,7 @@ BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	desktop-file-utils
 BuildRequires:	cmake
+BuildRequires: cmake(ECM)
 Requires:	pciutils
 
 %description
@@ -36,10 +37,10 @@ simple benchmarks.
 %cmake \
      -DCMAKE_INSTALL_LIBDIR=%{_lib} \
      -DCMAKE_BUILD_TYPE=Release
-%make_build -C build
+%make_build
 
 %install
-%make_install -C build
+%make_install
 
 desktop-file-install --vendor="" \
   --set-generic-name='Hardware Information' \
