@@ -1,68 +1,57 @@
-%define name hardinfo
-%define version 0.5.1
-%define release %mkrel 2
+# comment out if not snapshot
+%define gitdate	08.01.2020
 
-Summary: A system profiler for Linux
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source0: http://download.berlios.de/hardinfo/%{name}-%{version}.tar.bz2
-License: GPLv2+
-Group: System/Kernel and hardware 
-Url: http://hardinfo.berlios.de
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: pciutils, libsoup-2.2-devel, gtk2-devel, zlib-devel
-BuildRequires: desktop-file-utils
-Requires: pciutils
+# rel to bump
+%define rel	1
+
+Name:		hardinfo
+Version:	0.6
+Release:	0.%{gitdate}.%{rel}
+Summary:	A system profiler for Linux
+License:	GPLv2+
+Group:		System/Kernel and hardware
+Url:		http://hardinfo.org
+#Source taken from here: https://github.com/lpereira/hardinfo/
+Source0:	%{name}-{gitdate}.tar.lz
+BuildRequires:	pciutils
+BuildRequires:	pkgconfig(liblzma)
+BuildRequires:	pkgconfig(libsoup-2.4)
+BuildRequires:	gtk2-devel
+BuildRequires:	pkgconfig(zlib)
+BuildRequires:	desktop-file-utils
+BuildRequires:	cmake
+Requires:	pciutils
 
 %description
 HardInfo is a system profiler for Linux systems.
-It can display information about the hardware, software, and perform 
+It can display information about the hardware, software, and perform
 simple benchmarks.
 
 %prep
-%setup -q
+%autosetup -p1 -n %{name}-%{gitdate}
 
 %build
-#export LIBDIR=%{_libdir}
-%configure2_5x
-#perl -pi -e "s|/usr/lib/hardinfo/|%{_libdir}/hardinfo/|g" Makefile
-%make
+%cmake \
+     -DCMAKE_INSTALL_LIBDIR=%{_lib} \
+     -DCMAKE_BUILD_TYPE=Release
+%cmake_build
 
 %install
-rm -rf $RPM_BUILD_ROOT
-%makeinstall_std
+%cmake_install
 
 desktop-file-install --vendor="" \
+  --set-generic-name='Hardware Information' \
+  --set-comment='System Information' \
   --remove-category="Application" \
-  --add-category="Settings" \
-  --add-category="HardwareSettings" \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/%name.desktop
+  --add-category="Settings;HardwareSettings;" \
+  --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/%{name}.desktop
 
-%clean
-rm -rf $RPM_BUILD_ROOT
+%find_lang %{name}
 
-%post
-%if %mdkversion < 200900
-/sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%update_menus
-%endif
-
-%postun
-%if %mdkversion < 200900
-/sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%clean_menus
-%endif
-
-%files
-%defattr(-,root,root)
-%{_bindir}/hardinfo
-%{_libdir}/%{name}/modules/*so
-%{_datadir}/%{name}/pixmaps/*
-%{_datadir}/%{name}/benchmark.conf
-%{_datadir}/%{name}/benchmark.data
+%files -f %{name}.lang
+%{_bindir}/%{name}
+%{_libdir}/%{name}/
+%{_datadir}/%{name}/
 %{_datadir}/applications/%{name}.desktop
+%{_iconsdir}/hicolor/*/apps/hardinfo.png
+%{_mandir}/man1/hardinfo.1*
