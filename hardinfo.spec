@@ -36,7 +36,8 @@ simple benchmarks.
 %build
 %cmake \
      -DCMAKE_INSTALL_LIBDIR=%{_lib} \
-     -DCMAKE_BUILD_TYPE=Release
+     -DCMAKE_BUILD_TYPE=Release \
+     -G Ninja
 %ninja_build
 
 %install
