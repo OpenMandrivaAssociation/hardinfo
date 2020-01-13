@@ -36,10 +36,10 @@ simple benchmarks.
 %cmake \
      -DCMAKE_INSTALL_LIBDIR=%{_lib} \
      -DCMAKE_BUILD_TYPE=Release
-%make_build
+%make_build -C
 
 %install
-%make_install
+%make_install -C
 
 desktop-file-install --vendor="" \
   --set-generic-name='Hardware Information' \
