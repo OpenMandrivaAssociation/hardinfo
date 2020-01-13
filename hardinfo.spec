@@ -22,7 +22,6 @@ BuildRequires:	pkgconfig(gtk+-2.0)
 BuildRequires:	pkgconfig(zlib)
 BuildRequires:	desktop-file-utils
 BuildRequires:	cmake
-BuildRequires: ninja
 Requires:	pciutils
 
 %description
@@ -36,12 +35,11 @@ simple benchmarks.
 %build
 %cmake \
      -DCMAKE_INSTALL_LIBDIR=%{_lib} \
-     -DCMAKE_BUILD_TYPE=Release \
-     -G Ninja
-%ninja_build
+     -DCMAKE_BUILD_TYPE=Release
+%make_build
 
 %install
-%ninja_install
+%make_install
 
 desktop-file-install --vendor="" \
   --set-generic-name='Hardware Information' \
