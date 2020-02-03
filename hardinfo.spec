@@ -2,7 +2,7 @@
 %define gitdate	08.01.2020
 
 # rel to bump
-%define rel	1
+%define rel	2
 
 Name:		hardinfo
 Version:	0.6
@@ -24,6 +24,7 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	cmake
 BuildRequires: cmake(ECM)
 Requires:	pciutils
+Recommends: sysbench
 
 %description
 HardInfo is a system profiler for Linux systems.
