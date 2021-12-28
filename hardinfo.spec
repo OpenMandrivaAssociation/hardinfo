@@ -1,5 +1,5 @@
 # comment out if not snapshot
-%define gitdate	08.01.2020
+%define gitdate	28.12.2021
 
 # rel to bump
 %define rel	2
@@ -12,7 +12,7 @@ License:	GPLv2+
 Group:		System/Kernel and hardware
 Url:		http://hardinfo.org
 #Source taken from here: https://github.com/lpereira/hardinfo/
-Source0:	%{name}-%{gitdate}.tar.lz
+Source0:	%{name}-%{gitdate}.tar.xz
 BuildRequires:	pciutils
 BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	pkgconfig(libsoup-2.4)
