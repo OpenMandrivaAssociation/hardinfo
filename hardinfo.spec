@@ -10,7 +10,7 @@ Release:	0.%{gitdate}.%{rel}
 Summary:	A system profiler for Linux
 License:	GPLv2+
 Group:		System/Kernel and hardware
-Url:		http://hardinfo.org
+Url:		https://hardinfo.org
 #Source taken from here: https://github.com/lpereira/hardinfo/
 Source0:	%{name}-%{gitdate}.tar.xz
 BuildRequires:	pciutils
